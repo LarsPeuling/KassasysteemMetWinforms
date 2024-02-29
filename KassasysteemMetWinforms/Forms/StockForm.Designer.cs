@@ -1,6 +1,6 @@
 ﻿namespace KassasysteemMetWinforms.Forms
 {
-    partial class MainForm
+    partial class StockForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,52 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnExit = new Button();
-            btnCustomer = new Button();
-            btnProduct = new Button();
             btnStock = new Button();
+            btnProduct = new Button();
+            btnCustomer = new Button();
+            btnExit = new Button();
             SuspendLayout();
-            // 
-            // btnExit
-            // 
-            btnExit.Location = new Point(12, 350);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(75, 23);
-            btnExit.TabIndex = 0;
-            btnExit.Text = "Exit";
-            btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += btnExit_Click;
-            // 
-            // btnCustomer
-            // 
-            btnCustomer.Location = new Point(12, 159);
-            btnCustomer.Name = "btnCustomer";
-            btnCustomer.Size = new Size(75, 23);
-            btnCustomer.TabIndex = 1;
-            btnCustomer.Text = "Customer";
-            btnCustomer.UseVisualStyleBackColor = true;
-            // 
-            // btnProduct
-            // 
-            btnProduct.Location = new Point(12, 42);
-            btnProduct.Name = "btnProduct";
-            btnProduct.Size = new Size(75, 23);
-            btnProduct.TabIndex = 2;
-            btnProduct.Text = "Product";
-            btnProduct.UseVisualStyleBackColor = true;
-            btnProduct.Click += btnProduct_Click;
             // 
             // btnStock
             // 
-            btnStock.Location = new Point(12, 260);
+            btnStock.Location = new Point(12, 248);
             btnStock.Name = "btnStock";
             btnStock.Size = new Size(75, 23);
-            btnStock.TabIndex = 3;
+            btnStock.TabIndex = 7;
             btnStock.Text = "Stock";
             btnStock.UseVisualStyleBackColor = true;
             btnStock.Click += btnStock_Click;
             // 
-            // MainForm
+            // btnProduct
+            // 
+            btnProduct.Location = new Point(12, 51);
+            btnProduct.Name = "btnProduct";
+            btnProduct.Size = new Size(75, 23);
+            btnProduct.TabIndex = 6;
+            btnProduct.Text = "Product";
+            btnProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnCustomer
+            // 
+            btnCustomer.Location = new Point(12, 144);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(75, 23);
+            btnCustomer.TabIndex = 5;
+            btnCustomer.Text = "Customer";
+            btnCustomer.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            btnExit.Location = new Point(12, 354);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(75, 23);
+            btnExit.TabIndex = 4;
+            btnExit.Text = "Exit";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
+            // 
+            // StockForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -83,16 +82,16 @@
             Controls.Add(btnCustomer);
             Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "MainForm";
-            Text = "Main";
+            Name = "StockForm";
+            Text = "StockForm";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btnExit;
-        private Button btnCustomer;
-        private Button btnProduct;
         private Button btnStock;
+        private Button btnProduct;
+        private Button btnCustomer;
+        private Button btnExit;
     }
 }

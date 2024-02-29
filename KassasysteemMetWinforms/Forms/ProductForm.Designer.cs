@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             btnExit = new Button();
+            btnStock = new Button();
+            btnProduct = new Button();
+            btnCustomer = new Button();
             SuspendLayout();
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(713, 415);
+            btnExit.Location = new Point(12, 371);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(75, 23);
             btnExit.TabIndex = 1;
@@ -41,11 +44,41 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
+            // btnStock
+            // 
+            btnStock.Location = new Point(12, 274);
+            btnStock.Name = "btnStock";
+            btnStock.Size = new Size(75, 23);
+            btnStock.TabIndex = 10;
+            btnStock.Text = "Stock";
+            btnStock.UseVisualStyleBackColor = true;
+            // 
+            // btnProduct
+            // 
+            btnProduct.Location = new Point(12, 77);
+            btnProduct.Name = "btnProduct";
+            btnProduct.Size = new Size(75, 23);
+            btnProduct.TabIndex = 9;
+            btnProduct.Text = "Product";
+            btnProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnCustomer
+            // 
+            btnCustomer.Location = new Point(12, 170);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(75, 23);
+            btnCustomer.TabIndex = 8;
+            btnCustomer.Text = "Customer";
+            btnCustomer.UseVisualStyleBackColor = true;
+            // 
             // ProductForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnStock);
+            Controls.Add(btnProduct);
+            Controls.Add(btnCustomer);
             Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ProductForm";
@@ -56,5 +89,8 @@
         #endregion
 
         private Button btnExit;
+        private Button btnStock;
+        private Button btnProduct;
+        private Button btnCustomer;
     }
 }

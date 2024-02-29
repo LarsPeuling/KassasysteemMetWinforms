@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace KassasysteemMetWinforms.Forms
 {
-    public partial class MainForm : Form
+    public partial class StockForm : Form
     {
-        public MainForm()
+        public StockForm()
         {
             InitializeComponent();
         }
@@ -22,18 +22,9 @@ namespace KassasysteemMetWinforms.Forms
             Close();
         }
 
-        private void btnProduct_Click(object sender, EventArgs e)
-        {
-            var productfrom = new ProductForm();
-            productfrom.Show();
-            this.Hide();
-        }
-
         private void btnStock_Click(object sender, EventArgs e)
         {
-            var stockfrom = new StockForm();
-            stockfrom.Show();
-            this.Hide();
+
         }
     }
 }
