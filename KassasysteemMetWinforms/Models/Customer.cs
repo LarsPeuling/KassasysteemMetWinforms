@@ -9,6 +9,17 @@ namespace KassasysteemMetWinforms.Models
     public class Customer : User
     {
         public int Id { get; set; }
-        public Basket Basket { get; set; }
+        private string _name;
+        public override string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
+        public Basket Basket { get; set; } = null;
+
+        public Customer(string name)
+        {
+            Name = name;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KassasysteemMetWinforms.Forms.Customer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,28 +22,35 @@ namespace KassasysteemMetWinforms.Forms
         {
             var employeeForm = new EmployeeForm();
             employeeForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             var customerForm = new CustomerForm();
             customerForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnStock_Click(object sender, EventArgs e)
         {
             var stockForm = new StockForm();
             stockForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             var mainForm = new MainForm();
             mainForm.Show();
-            this.Close();
+            this.Hide();
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            var addCustomerForm = new AddCustomerForm();
+            addCustomerForm.Show();
+            this.Hide();
         }
     }
 }

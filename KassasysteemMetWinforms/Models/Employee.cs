@@ -9,6 +9,12 @@ namespace KassasysteemMetWinforms.Models
     public class Employee : User
     {
         public int Id { get; set; }
+        private string _name;
+        public override string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
        
     }
 }

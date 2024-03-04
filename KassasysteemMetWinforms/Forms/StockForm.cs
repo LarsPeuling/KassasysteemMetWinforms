@@ -21,12 +21,21 @@ namespace KassasysteemMetWinforms.Forms
         {
             var mainform = new MainForm();
             mainform.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            
+            var stockform = new StockForm();
+            stockform.Show();
+            this.Hide();
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            var customerform = new CustomerForm();
+            customerform.Show();
+            this.Hide();
         }
     }
 }

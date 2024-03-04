@@ -66,6 +66,7 @@
             btnCustomer.TabIndex = 5;
             btnCustomer.Text = "Customer";
             btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.Click += btnCustomer_Click;
             // 
             // btnExit
             // 
