@@ -8,5 +8,6 @@ namespace KassasysteemMetWinforms.Models
 {
     public class Product
     {
+
     }
 }

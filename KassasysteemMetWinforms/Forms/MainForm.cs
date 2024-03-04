@@ -24,7 +24,7 @@ namespace KassasysteemMetWinforms.Forms
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            var productfrom = new ProductForm();
+            var productfrom = new EmployeeForm();
             productfrom.Show();
             this.Hide();
         }
@@ -34,6 +34,13 @@ namespace KassasysteemMetWinforms.Forms
             var stockfrom = new StockForm();
             stockfrom.Show();
             this.Hide();
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            var customerfrom = new CustomerForm();
+            customerfrom.Show();
+            this.Close();
         }
     }
 }

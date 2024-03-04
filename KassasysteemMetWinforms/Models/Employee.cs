@@ -8,5 +8,7 @@ namespace KassasysteemMetWinforms.Models
 {
     public class Employee : User
     {
+        public int Id { get; set; }
+       
     }
 }
