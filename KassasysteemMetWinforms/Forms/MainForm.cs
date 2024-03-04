@@ -40,7 +40,7 @@ namespace KassasysteemMetWinforms.Forms
         {
             var customerfrom = new CustomerForm();
             customerfrom.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

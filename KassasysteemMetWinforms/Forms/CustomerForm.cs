@@ -16,6 +16,8 @@ namespace KassasysteemMetWinforms.Forms
         public CustomerForm()
         {
             InitializeComponent();
+            var dal = new DataAccesLayer.Dal();
+            dgvCustomer.DataSource = dal.GetAllCustomers();
         }
 
         private void btnProduct_Click(object sender, EventArgs e)

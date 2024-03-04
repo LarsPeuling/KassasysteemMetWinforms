@@ -33,6 +33,8 @@
             btnCustomer = new Button();
             btnExit = new Button();
             btnAddCustomer = new Button();
+            dgvCustomer = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvCustomer).BeginInit();
             SuspendLayout();
             // 
             // btnStock
@@ -90,11 +92,20 @@
             btnAddCustomer.UseVisualStyleBackColor = true;
             btnAddCustomer.Click += btnAddCustomer_Click;
             // 
+            // dgvCustomer
+            // 
+            dgvCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCustomer.Location = new Point(34, 43);
+            dgvCustomer.Name = "dgvCustomer";
+            dgvCustomer.Size = new Size(591, 240);
+            dgvCustomer.TabIndex = 13;
+            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dgvCustomer);
             Controls.Add(btnAddCustomer);
             Controls.Add(btnStock);
             Controls.Add(btnEmployee);
@@ -103,6 +114,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "CustomerForm";
             Text = "CustomerForm";
+            ((System.ComponentModel.ISupportInitialize)dgvCustomer).EndInit();
             ResumeLayout(false);
         }
 
@@ -113,5 +125,6 @@
         private Button btnCustomer;
         private Button btnExit;
         private Button btnAddCustomer;
+        private DataGridView dgvCustomer;
     }
 }

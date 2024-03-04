@@ -11,7 +11,7 @@ namespace KassasysteemMetWinforms.DataAccesLayer
 {
     public class Dal
     {
-        private string conString = "Data Source=DESKTOP-R089365;Initial Catalog=KassaSysteem2.0;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        private string conString = "Data Source=.;Initial Catalog=Kassasysteem2.0;Integrated Security=True";
         private SqlConnection cnn;
         public Dal()
         {
@@ -26,29 +26,34 @@ namespace KassasysteemMetWinforms.DataAccesLayer
         /// <returns></returns>
         public DataTable GetAllCustomers()
         {
-            cnn.Open();
-            var query = "select * from Customer";
-            var cmd = new SqlCommand(query, cnn);
-            var reader = cmd.ExecuteReader();
-            var dt = new DataTable();
-            dt.Load(reader);
-            cnn.Close();
-            return dt;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select * from Customer";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    var reader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(reader);
+                    cnn.Close();
+                    return dt;
+                }
+            }   
         }
 
         /// <summary>
         /// Add Customer to database
         /// </summary>
         /// <param name="customer"></param>
-        public void AddCustomer(Customer customer)
+        public void AddCustomer(string name)
         {
             using (SqlConnection cnn = new SqlConnection(conString))
             {
-                string query = $"insert into Customer (Name) values ({customer.Name})";
+                string query = "insert into Customer (Name) values (@name)";
                 cnn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
-                    cmd.Parameters.AddWithValue("@name", customer.Name);
+                    cmd.Parameters.AddWithValue("@name", name);
                     cmd.ExecuteNonQuery();
                 }
             }
