@@ -29,44 +29,50 @@
         private void InitializeComponent()
         {
             btnStock = new Button();
-            btnProduct = new Button();
+            btnEmployee = new Button();
             btnCustomer = new Button();
             btnExit = new Button();
             SuspendLayout();
             // 
             // btnStock
             // 
-            btnStock.Location = new Point(12, 248);
+            btnStock.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnStock.Location = new Point(12, 242);
             btnStock.Name = "btnStock";
-            btnStock.Size = new Size(75, 23);
+            btnStock.Size = new Size(100, 40);
             btnStock.TabIndex = 7;
             btnStock.Text = "Stock";
             btnStock.UseVisualStyleBackColor = true;
             btnStock.Click += btnStock_Click;
             // 
-            // btnProduct
+            // btnEmployee
             // 
-            btnProduct.Location = new Point(12, 51);
-            btnProduct.Name = "btnProduct";
-            btnProduct.Size = new Size(75, 23);
-            btnProduct.TabIndex = 6;
-            btnProduct.Text = "Product";
-            btnProduct.UseVisualStyleBackColor = true;
+            btnEmployee.FlatAppearance.BorderColor = Color.Black;
+            btnEmployee.FlatAppearance.BorderSize = 0;
+            btnEmployee.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEmployee.Location = new Point(12, 42);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Size = new Size(100, 40);
+            btnEmployee.TabIndex = 6;
+            btnEmployee.Text = "Employee";
+            btnEmployee.UseVisualStyleBackColor = true;
             // 
             // btnCustomer
             // 
-            btnCustomer.Location = new Point(12, 144);
+            btnCustomer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCustomer.Location = new Point(12, 142);
             btnCustomer.Name = "btnCustomer";
-            btnCustomer.Size = new Size(75, 23);
+            btnCustomer.Size = new Size(100, 40);
             btnCustomer.TabIndex = 5;
             btnCustomer.Text = "Customer";
             btnCustomer.UseVisualStyleBackColor = true;
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(12, 354);
+            btnExit.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnExit.Location = new Point(12, 342);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(75, 23);
+            btnExit.Size = new Size(100, 40);
             btnExit.TabIndex = 4;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
@@ -78,7 +84,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnStock);
-            Controls.Add(btnProduct);
+            Controls.Add(btnEmployee);
             Controls.Add(btnCustomer);
             Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.None;
@@ -90,7 +96,7 @@
         #endregion
 
         private Button btnStock;
-        private Button btnProduct;
+        private Button btnEmployee;
         private Button btnCustomer;
         private Button btnExit;
     }

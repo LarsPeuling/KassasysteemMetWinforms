@@ -1,6 +1,6 @@
 ﻿namespace KassasysteemMetWinforms.Forms
 {
-    partial class ProductForm
+    partial class CustomerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,69 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnExit = new Button();
             btnStock = new Button();
-            btnProduct = new Button();
+            btnEmployee = new Button();
             btnCustomer = new Button();
+            btnExit = new Button();
             SuspendLayout();
+            // 
+            // btnStock
+            // 
+            btnStock.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnStock.Location = new Point(12, 242);
+            btnStock.Name = "btnStock";
+            btnStock.Size = new Size(100, 40);
+            btnStock.TabIndex = 11;
+            btnStock.Text = "Stock";
+            btnStock.UseVisualStyleBackColor = true;
+            btnStock.Click += btnStock_Click;
+            // 
+            // btnEmployee
+            // 
+            btnEmployee.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnEmployee.Location = new Point(12, 42);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Size = new Size(100, 40);
+            btnEmployee.TabIndex = 10;
+            btnEmployee.Text = "Employee";
+            btnEmployee.UseVisualStyleBackColor = true;
+            btnEmployee.Click += btnProduct_Click;
+            // 
+            // btnCustomer
+            // 
+            btnCustomer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnCustomer.Location = new Point(12, 142);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(100, 40);
+            btnCustomer.TabIndex = 9;
+            btnCustomer.Text = "Customer";
+            btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.Click += btnCustomer_Click;
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(12, 371);
+            btnExit.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnExit.Location = new Point(12, 342);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(75, 23);
-            btnExit.TabIndex = 1;
+            btnExit.Size = new Size(100, 40);
+            btnExit.TabIndex = 8;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
-            // btnStock
-            // 
-            btnStock.Location = new Point(12, 274);
-            btnStock.Name = "btnStock";
-            btnStock.Size = new Size(75, 23);
-            btnStock.TabIndex = 10;
-            btnStock.Text = "Stock";
-            btnStock.UseVisualStyleBackColor = true;
-            // 
-            // btnProduct
-            // 
-            btnProduct.Location = new Point(12, 77);
-            btnProduct.Name = "btnProduct";
-            btnProduct.Size = new Size(75, 23);
-            btnProduct.TabIndex = 9;
-            btnProduct.Text = "Product";
-            btnProduct.UseVisualStyleBackColor = true;
-            // 
-            // btnCustomer
-            // 
-            btnCustomer.Location = new Point(12, 170);
-            btnCustomer.Name = "btnCustomer";
-            btnCustomer.Size = new Size(75, 23);
-            btnCustomer.TabIndex = 8;
-            btnCustomer.Text = "Customer";
-            btnCustomer.UseVisualStyleBackColor = true;
-            // 
-            // ProductForm
+            // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnStock);
-            Controls.Add(btnProduct);
+            Controls.Add(btnEmployee);
             Controls.Add(btnCustomer);
             Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ProductForm";
-            Text = "Product";
+            Name = "CustomerForm";
+            Text = "CustomerForm";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btnExit;
         private Button btnStock;
-        private Button btnProduct;
+        private Button btnEmployee;
         private Button btnCustomer;
+        private Button btnExit;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace KassasysteemMetWinforms.Forms
 {
-    partial class MainForm
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             btnExit = new Button();
-            btnCustomer = new Button();
-            btnEmployee = new Button();
             btnStock = new Button();
+            btnEmployee = new Button();
+            btnCustomer = new Button();
             SuspendLayout();
             // 
             // btnExit
@@ -40,32 +40,10 @@
             btnExit.Location = new Point(12, 342);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(100, 40);
-            btnExit.TabIndex = 0;
+            btnExit.TabIndex = 1;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
-            // 
-            // btnCustomer
-            // 
-            btnCustomer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            btnCustomer.Location = new Point(12, 142);
-            btnCustomer.Name = "btnCustomer";
-            btnCustomer.Size = new Size(100, 40);
-            btnCustomer.TabIndex = 1;
-            btnCustomer.Text = "Customer";
-            btnCustomer.UseVisualStyleBackColor = true;
-            btnCustomer.Click += btnCustomer_Click;
-            // 
-            // btnEmployee
-            // 
-            btnEmployee.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            btnEmployee.Location = new Point(12, 42);
-            btnEmployee.Name = "btnEmployee";
-            btnEmployee.Size = new Size(100, 40);
-            btnEmployee.TabIndex = 2;
-            btnEmployee.Text = "Employee";
-            btnEmployee.UseVisualStyleBackColor = true;
-            btnEmployee.Click += btnProduct_Click;
             // 
             // btnStock
             // 
@@ -73,12 +51,34 @@
             btnStock.Location = new Point(12, 242);
             btnStock.Name = "btnStock";
             btnStock.Size = new Size(100, 40);
-            btnStock.TabIndex = 3;
+            btnStock.TabIndex = 10;
             btnStock.Text = "Stock";
             btnStock.UseVisualStyleBackColor = true;
             btnStock.Click += btnStock_Click;
             // 
-            // MainForm
+            // btnEmployee
+            // 
+            btnEmployee.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnEmployee.Location = new Point(12, 42);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Size = new Size(100, 40);
+            btnEmployee.TabIndex = 9;
+            btnEmployee.Text = "Employee";
+            btnEmployee.UseVisualStyleBackColor = true;
+            btnEmployee.Click += btnProduct_Click;
+            // 
+            // btnCustomer
+            // 
+            btnCustomer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnCustomer.Location = new Point(12, 142);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(100, 40);
+            btnCustomer.TabIndex = 8;
+            btnCustomer.Text = "Customer";
+            btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.Click += btnCustomer_Click;
+            // 
+            // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -88,16 +88,16 @@
             Controls.Add(btnCustomer);
             Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "MainForm";
-            Text = "Main";
+            Name = "EmployeeForm";
+            Text = "Product";
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button btnExit;
-        private Button btnCustomer;
-        private Button btnEmployee;
         private Button btnStock;
+        private Button btnEmployee;
+        private Button btnCustomer;
     }
 }
