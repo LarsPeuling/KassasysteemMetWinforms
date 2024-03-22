@@ -34,6 +34,11 @@
             btnExit = new Button();
             btnAddCustomer = new Button();
             dgvCustomer = new DataGridView();
+            btnUpdateCustomer = new Button();
+            btnRemoveCustomer = new Button();
+            tbId = new TextBox();
+            lId = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvCustomer).BeginInit();
             SuspendLayout();
             // 
@@ -100,11 +105,68 @@
             dgvCustomer.Size = new Size(591, 240);
             dgvCustomer.TabIndex = 13;
             // 
+            // btnUpdateCustomer
+            // 
+            btnUpdateCustomer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnUpdateCustomer.Location = new Point(365, 343);
+            btnUpdateCustomer.Name = "btnUpdateCustomer";
+            btnUpdateCustomer.Size = new Size(100, 40);
+            btnUpdateCustomer.TabIndex = 14;
+            btnUpdateCustomer.Text = "Update Customer";
+            btnUpdateCustomer.UseVisualStyleBackColor = true;
+            btnUpdateCustomer.Click += btnUpdateCustomer_Click;
+            // 
+            // btnRemoveCustomer
+            // 
+            btnRemoveCustomer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnRemoveCustomer.Location = new Point(200, 343);
+            btnRemoveCustomer.Name = "btnRemoveCustomer";
+            btnRemoveCustomer.Size = new Size(100, 40);
+            btnRemoveCustomer.TabIndex = 15;
+            btnRemoveCustomer.Text = "Remove Customer";
+            btnRemoveCustomer.UseVisualStyleBackColor = true;
+            btnRemoveCustomer.Click += btnRemoveCustomer_Click;
+            // 
+            // tbId
+            // 
+            tbId.BorderStyle = BorderStyle.None;
+            tbId.Location = new Point(111, 367);
+            tbId.Name = "tbId";
+            tbId.PlaceholderText = "ID Here!";
+            tbId.Size = new Size(81, 16);
+            tbId.TabIndex = 45;
+            // 
+            // lId
+            // 
+            lId.AutoSize = true;
+            lId.FlatStyle = FlatStyle.Flat;
+            lId.Location = new Point(85, 367);
+            lId.Name = "lId";
+            lId.Size = new Size(20, 15);
+            lId.TabIndex = 44;
+            lId.Text = "Id:";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label1.FlatStyle = FlatStyle.Flat;
+            label1.Location = new Point(85, 325);
+            label1.Name = "label1";
+            label1.Size = new Size(215, 15);
+            label1.TabIndex = 46;
+            label1.Text = "Enter Customer Id to be removed";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(tbId);
+            Controls.Add(lId);
+            Controls.Add(btnRemoveCustomer);
+            Controls.Add(btnUpdateCustomer);
             Controls.Add(dgvCustomer);
             Controls.Add(btnAddCustomer);
             Controls.Add(btnStock);
@@ -116,6 +178,7 @@
             Text = "CustomerForm";
             ((System.ComponentModel.ISupportInitialize)dgvCustomer).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -126,5 +189,10 @@
         private Button btnExit;
         private Button btnAddCustomer;
         private DataGridView dgvCustomer;
+        private Button btnUpdateCustomer;
+        private Button btnRemoveCustomer;
+        private TextBox tbId;
+        private Label lId;
+        private Label label1;
     }
 }

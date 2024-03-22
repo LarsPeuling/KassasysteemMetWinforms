@@ -1,4 +1,5 @@
-﻿using KassasysteemMetWinforms.Forms.Customer;
+﻿using KassasysteemMetWinforms.DataAccesLayer;
+using KassasysteemMetWinforms.Forms.Customer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,10 @@ namespace KassasysteemMetWinforms.Forms
 {
     public partial class CustomerForm : Form
     {
+        public Dal dal = new Dal();
         public CustomerForm()
         {
             InitializeComponent();
-            var dal = new DataAccesLayer.Dal();
             dgvCustomer.DataSource = dal.GetAllCustomers();
         }
 
@@ -53,6 +54,20 @@ namespace KassasysteemMetWinforms.Forms
             var addCustomerForm = new AddCustomerForm();
             addCustomerForm.Show();
             this.Hide();
+        }
+
+        private void btnUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            var updateCustomerForm = new UpdateCustomerForm();
+            updateCustomerForm.Show();
+            this.Hide();
+        }
+
+        private void btnRemoveCustomer_Click(object sender, EventArgs e)
+        {
+            var id = Int32.Parse(tbId.Text);
+            dal.DeleteCustomer(id);
+            dgvCustomer.DataSource = dal.GetAllCustomers();
         }
     }
 }

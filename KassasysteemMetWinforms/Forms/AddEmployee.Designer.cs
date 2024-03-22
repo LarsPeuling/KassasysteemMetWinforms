@@ -1,6 +1,6 @@
-﻿namespace KassasysteemMetWinforms.Forms.Customer
+﻿namespace KassasysteemMetWinforms.Forms
 {
-    partial class AddCustomerForm
+    partial class AddEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnAddCustomer = new Button();
-            lblName = new Label();
             tBName = new TextBox();
+            lblName = new Label();
+            btnAddCustomer = new Button();
             SuspendLayout();
-            // 
-            // btnAddCustomer
-            // 
-            btnAddCustomer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            btnAddCustomer.Location = new Point(350, 353);
-            btnAddCustomer.Name = "btnAddCustomer";
-            btnAddCustomer.Size = new Size(100, 40);
-            btnAddCustomer.TabIndex = 13;
-            btnAddCustomer.Text = "Add Customer";
-            btnAddCustomer.UseVisualStyleBackColor = true;
-            btnAddCustomer.Click += btnAddCustomer_Click;
-            // 
-            // lblName
-            // 
-            lblName.AutoSize = true;
-            lblName.FlatStyle = FlatStyle.Flat;
-            lblName.Location = new Point(379, 168);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(42, 15);
-            lblName.TabIndex = 14;
-            lblName.Text = "Name:";
-            lblName.Click += label1_Click;
             // 
             // tBName
             // 
@@ -62,9 +40,30 @@
             tBName.Name = "tBName";
             tBName.PlaceholderText = "Name Here!";
             tBName.Size = new Size(150, 16);
-            tBName.TabIndex = 15;
+            tBName.TabIndex = 18;
             // 
-            // AddCustomerForm
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.FlatStyle = FlatStyle.Flat;
+            lblName.Location = new Point(379, 168);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(42, 15);
+            lblName.TabIndex = 17;
+            lblName.Text = "Name:";
+            // 
+            // btnAddCustomer
+            // 
+            btnAddCustomer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            btnAddCustomer.Location = new Point(350, 353);
+            btnAddCustomer.Name = "btnAddCustomer";
+            btnAddCustomer.Size = new Size(100, 40);
+            btnAddCustomer.TabIndex = 16;
+            btnAddCustomer.Text = "Add Employee";
+            btnAddCustomer.UseVisualStyleBackColor = true;
+            btnAddCustomer.Click += btnAddCustomer_Click;
+            // 
+            // AddEmployee
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -73,17 +72,16 @@
             Controls.Add(lblName);
             Controls.Add(btnAddCustomer);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "AddCustomerForm";
-            Text = "AddCustomerForm";
-            Load += AddCustomerForm_Load;
+            Name = "AddEmployee";
+            Text = "AddEmployee";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnAddCustomer;
-        private Label lblName;
         private TextBox tBName;
+        private Label lblName;
+        private Button btnAddCustomer;
     }
 }

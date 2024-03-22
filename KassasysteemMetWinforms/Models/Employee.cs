@@ -16,5 +16,9 @@ namespace KassasysteemMetWinforms.Models
             set => _name = value;
         }
        
+        public Employee(string name)
+        {
+            Name = name;
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace KassasysteemMetWinforms.Forms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void btnProduct_Click(object sender, EventArgs e)

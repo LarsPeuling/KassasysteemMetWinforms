@@ -14,5 +14,12 @@ namespace KassasysteemMetWinforms.Models
         public int Stock { get; set; }
         public string Description { get; set; }
 
+        public Product(string name, double price, int stock, string? description)
+        {
+            Name = name;
+            Price = price;
+            Stock = stock;
+            Description = description;
+        }
     }
 }
