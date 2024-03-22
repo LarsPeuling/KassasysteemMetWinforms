@@ -32,6 +32,13 @@
             btnEmployee = new Button();
             btnCustomer = new Button();
             btnExit = new Button();
+            dgvStock = new DataGridView();
+            btnAddStock = new Button();
+            tbStockIdDelete = new TextBox();
+            lId = new Label();
+            btnDeleteStock = new Button();
+            btnUpdateStock = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvStock).BeginInit();
             SuspendLayout();
             // 
             // btnStock
@@ -79,11 +86,83 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
+            // dgvStock
+            // 
+            dgvStock.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStock.Location = new Point(151, 42);
+            dgvStock.Name = "dgvStock";
+            dgvStock.Size = new Size(468, 340);
+            dgvStock.TabIndex = 8;
+            // 
+            // btnAddStock
+            // 
+            btnAddStock.FlatAppearance.BorderColor = Color.Black;
+            btnAddStock.FlatAppearance.BorderSize = 0;
+            btnAddStock.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddStock.Location = new Point(640, 342);
+            btnAddStock.Name = "btnAddStock";
+            btnAddStock.Size = new Size(148, 40);
+            btnAddStock.TabIndex = 9;
+            btnAddStock.Text = "Add Stock";
+            btnAddStock.UseVisualStyleBackColor = true;
+            btnAddStock.Click += btnAddStock_Click;
+            // 
+            // tbStockIdDelete
+            // 
+            tbStockIdDelete.BorderStyle = BorderStyle.None;
+            tbStockIdDelete.Location = new Point(666, 42);
+            tbStockIdDelete.Name = "tbStockIdDelete";
+            tbStockIdDelete.PlaceholderText = "Delete Stock id Here!";
+            tbStockIdDelete.Size = new Size(122, 16);
+            tbStockIdDelete.TabIndex = 22;
+            // 
+            // lId
+            // 
+            lId.AutoSize = true;
+            lId.FlatStyle = FlatStyle.Flat;
+            lId.Location = new Point(640, 42);
+            lId.Name = "lId";
+            lId.Size = new Size(20, 15);
+            lId.TabIndex = 21;
+            lId.Text = "Id:";
+            // 
+            // btnDeleteStock
+            // 
+            btnDeleteStock.FlatAppearance.BorderColor = Color.Black;
+            btnDeleteStock.FlatAppearance.BorderSize = 0;
+            btnDeleteStock.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteStock.Location = new Point(640, 64);
+            btnDeleteStock.Name = "btnDeleteStock";
+            btnDeleteStock.Size = new Size(148, 40);
+            btnDeleteStock.TabIndex = 23;
+            btnDeleteStock.Text = "Delete Stock";
+            btnDeleteStock.UseVisualStyleBackColor = true;
+            btnDeleteStock.Click += btnDeleteStock_Click;
+            // 
+            // btnUpdateStock
+            // 
+            btnUpdateStock.FlatAppearance.BorderColor = Color.Black;
+            btnUpdateStock.FlatAppearance.BorderSize = 0;
+            btnUpdateStock.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdateStock.Location = new Point(640, 142);
+            btnUpdateStock.Name = "btnUpdateStock";
+            btnUpdateStock.Size = new Size(148, 40);
+            btnUpdateStock.TabIndex = 24;
+            btnUpdateStock.Text = "Update Stock";
+            btnUpdateStock.UseVisualStyleBackColor = true;
+            btnUpdateStock.Click += btnUpdateStock_Click;
+            // 
             // StockForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnUpdateStock);
+            Controls.Add(btnDeleteStock);
+            Controls.Add(tbStockIdDelete);
+            Controls.Add(lId);
+            Controls.Add(btnAddStock);
+            Controls.Add(dgvStock);
             Controls.Add(btnStock);
             Controls.Add(btnEmployee);
             Controls.Add(btnCustomer);
@@ -91,7 +170,9 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "StockForm";
             Text = "StockForm";
+            ((System.ComponentModel.ISupportInitialize)dgvStock).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -100,5 +181,11 @@
         private Button btnEmployee;
         private Button btnCustomer;
         private Button btnExit;
+        private DataGridView dgvStock;
+        private Button btnAddStock;
+        private TextBox tbStockIdDelete;
+        private Label lId;
+        private Button btnDeleteStock;
+        private Button btnUpdateStock;
     }
 }

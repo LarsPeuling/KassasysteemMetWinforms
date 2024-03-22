@@ -99,29 +99,34 @@ namespace KassasysteemMetWinforms.DataAccesLayer
         //DataAccessLayer for Employee
         public DataTable GetAllEmployee()
         {
-            cnn.Open();
-            var query = "select * from Employee";
-            var cmd = new SqlCommand(query, cnn);
-            var reader = cmd.ExecuteReader();
-            var dt = new DataTable();
-            dt.Load(reader);
-            cnn.Close();
-            return dt;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select * from Employee";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    var reader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(reader);
+                    cnn.Close();
+                    return dt;
+                }
+            }
         }
 
         /// <summary>
         /// Add Employee to database
         /// </summary>
         /// <param name="employee"></param>
-        public void AddEmployee(Employee employee)
+        public void AddEmployee(string name)
         {
             using (SqlConnection cnn = new SqlConnection(conString))
             {
-                string query = $"insert into Employee (Name) values ({employee.Name})";
+                string query = "insert into Employee (Name) values (@name)";
                 cnn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
-                    cmd.Parameters.AddWithValue("@name", employee.Name);
+                    cmd.Parameters.AddWithValue("@name", name);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -167,16 +172,58 @@ namespace KassasysteemMetWinforms.DataAccesLayer
 
 
         //DataAccessLayer for Product
+        /// <summary>
+        /// Get all products from the database
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetAllProduct()
         {
-            cnn.Open();
-            var query = "select * from Product";
-            var cmd = new SqlCommand(query, cnn);
-            var reader = cmd.ExecuteReader();
-            var dt = new DataTable();
-            dt.Load(reader);
-            cnn.Close();
-            return dt;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select * from Product";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    var reader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(reader);
+                    cnn.Close();
+                    return dt;
+                }
+            }
+        }
+
+
+        //get product by id
+        public Product GetProductById(int id)
+        {
+            Double price = 0;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select * from Product where id = @id";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string name = reader["Name"].ToString();
+                            string description = reader["Description"].ToString();
+                            price = Convert.ToDouble(reader["Price"]);
+                            int stock = Convert.ToInt32(reader["Stock"]);
+                            var product = new Product(name, price, stock, description);
+                            return product;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    
+                }
+            }
         }
 
         /// <summary>
@@ -187,7 +234,7 @@ namespace KassasysteemMetWinforms.DataAccesLayer
         {
             using (SqlConnection cnn = new SqlConnection(conString))
             {
-                string query = "select max(id) from Product";
+                string query = "insert into Product (Name, Price, Stock, Description) values (@name, @price, @stock, @description)";
                 cnn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
@@ -205,20 +252,65 @@ namespace KassasysteemMetWinforms.DataAccesLayer
         /// </summary>
         /// <param name="id"></param>
         /// <param name="name"></param>
-        public void UpdateProduct(int id, string name)
+        public void UpdateProduct(int id, int stock)
         {
             using (SqlConnection cnn = new SqlConnection(conString))
             {
-                string query = "update Product set name = @name where id = @id";
+                string query = "update Product set stock = @stock where id = @id";
                 cnn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@stock", stock);
                     cmd.ExecuteNonQuery();
                 }
             }
         }
+        public Double GetPrice(int id)
+        {
+            Double price = 0;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select Price from Product where id = @id";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    var result = cmd.ExecuteScalar();
+                    price = Convert.ToDouble(result);
+                }
+            }
+            return price;
+        }
+
+        public int GetStock(int id)
+        {
+            int stock = 0;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select Stock from Product where id = @id";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            stock = Convert.ToInt32(reader["Stock"]);
+                            return stock;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+
+                }
+            }
+
+        }
+
 
         /// <summary>
         /// Delete Product from database
@@ -239,7 +331,7 @@ namespace KassasysteemMetWinforms.DataAccesLayer
         }
 
 
-        //DataAccessLayer for Basket
+        /*//DataAccessLayer for Basket
         public DataTable GetAllBasket()
         {
             cnn.Open();
@@ -306,6 +398,6 @@ namespace KassasysteemMetWinforms.DataAccesLayer
                     cmd.ExecuteNonQuery();
                 }
             }
-        }
+        }*/
     }
 }
