@@ -63,5 +63,10 @@ namespace KassasysteemMetWinforms.Forms
             updateStockForm.Show();
             this.Hide();
         }
+
+        private void dgvStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KassasysteemMetWinforms.DataAccesLayer;
 
 namespace KassasysteemMetWinforms.Forms
 {
@@ -15,6 +16,9 @@ namespace KassasysteemMetWinforms.Forms
         public MainForm()
         {
             InitializeComponent();
+            Dal dal = new Dal();
+            dgvCriticalStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dgvCriticalStock.DataSource = dal.GetCriticalProduct();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -41,6 +45,11 @@ namespace KassasysteemMetWinforms.Forms
             var customerfrom = new CustomerForm();
             customerfrom.Show();
             this.Hide();
+        }
+
+        private void dgvCriticalStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -93,6 +93,7 @@
             dgvStock.Name = "dgvStock";
             dgvStock.Size = new Size(468, 340);
             dgvStock.TabIndex = 8;
+            dgvStock.CellContentClick += dgvStock_CellContentClick;
             // 
             // btnAddStock
             // 

@@ -32,6 +32,8 @@
             btnCustomer = new Button();
             btnEmployee = new Button();
             btnStock = new Button();
+            dgvCriticalStock = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvCriticalStock).BeginInit();
             SuspendLayout();
             // 
             // btnExit
@@ -78,11 +80,21 @@
             btnStock.UseVisualStyleBackColor = true;
             btnStock.Click += btnStock_Click;
             // 
+            // dgvCriticalStock
+            // 
+            dgvCriticalStock.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCriticalStock.Location = new Point(135, 42);
+            dgvCriticalStock.Name = "dgvCriticalStock";
+            dgvCriticalStock.Size = new Size(317, 340);
+            dgvCriticalStock.TabIndex = 4;
+            dgvCriticalStock.CellContentClick += dgvCriticalStock_CellContentClick;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dgvCriticalStock);
             Controls.Add(btnStock);
             Controls.Add(btnEmployee);
             Controls.Add(btnCustomer);
@@ -90,6 +102,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "Main";
+            ((System.ComponentModel.ISupportInitialize)dgvCriticalStock).EndInit();
             ResumeLayout(false);
         }
 
@@ -99,5 +112,6 @@
         private Button btnCustomer;
         private Button btnEmployee;
         private Button btnStock;
+        private DataGridView dgvCriticalStock;
     }
 }
