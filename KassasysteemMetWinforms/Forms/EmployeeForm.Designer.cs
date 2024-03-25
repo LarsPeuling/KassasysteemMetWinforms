@@ -88,7 +88,7 @@
             // dgvEmployee
             // 
             dgvEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEmployee.Location = new Point(153, 42);
+            dgvEmployee.Location = new Point(151, 42);
             dgvEmployee.Name = "dgvEmployee";
             dgvEmployee.Size = new Size(468, 340);
             dgvEmployee.TabIndex = 11;

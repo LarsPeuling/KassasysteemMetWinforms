@@ -194,7 +194,33 @@ namespace KassasysteemMetWinforms.DataAccesLayer
         }
 
 
-        //get product by id
+        /// <summary>
+        /// Gets all products with stock less than 100
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetCriticalProduct()
+        {
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select * from Product where Stock < 100";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    var reader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(reader);
+                    cnn.Close();
+                    return dt;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Gets all products with the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Product GetProductById(int id)
         {
             Double price = 0;
@@ -224,6 +250,61 @@ namespace KassasysteemMetWinforms.DataAccesLayer
                     
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets price of product with the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Double GetPrice(int id)
+        {
+            Double price = 0;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select Price from Product where id = @id";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    var result = cmd.ExecuteScalar();
+                    price = Convert.ToDouble(result);
+                }
+            }
+            return price;
+        }
+
+        /// <summary>
+        /// Gets stock of product with the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int GetStock(int id)
+        {
+            int stock = 0;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select Stock from Product where id = @id";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            stock = Convert.ToInt32(reader["Stock"]);
+                            return stock;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+
+                }
+            }
+
         }
 
         /// <summary>
@@ -266,50 +347,9 @@ namespace KassasysteemMetWinforms.DataAccesLayer
                 }
             }
         }
-        public Double GetPrice(int id)
-        {
-            Double price = 0;
-            using (SqlConnection cnn = new SqlConnection(conString))
-            {
-                cnn.Open();
-                var query = "select Price from Product where id = @id";
-                using (SqlCommand cmd = new SqlCommand(query, cnn))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    var result = cmd.ExecuteScalar();
-                    price = Convert.ToDouble(result);
-                }
-            }
-            return price;
-        }
 
-        public int GetStock(int id)
-        {
-            int stock = 0;
-            using (SqlConnection cnn = new SqlConnection(conString))
-            {
-                cnn.Open();
-                var query = "select Stock from Product where id = @id";
-                using (SqlCommand cmd = new SqlCommand(query, cnn))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            stock = Convert.ToInt32(reader["Stock"]);
-                            return stock;
-                        }
-                        else
-                        {
-                            return 0;
-                        }
-                    }
 
-                }
-            }
-
-        }
+        
 
 
         /// <summary>
@@ -330,32 +370,41 @@ namespace KassasysteemMetWinforms.DataAccesLayer
             }
         }
 
-
+        //DataAccessLayer for Basket was removed because it was not usefull for the project
+        //Basket was found to be more of a one time use, so there was no need to store it in the database
+        //But because Basket is a model, it made sense (back when the DataAccessLayer was made) to make a DataAccessLayer for it.
+        //Also to prove that I am capable of making a DataAccessLayer for entities.
         /*//DataAccessLayer for Basket
         public DataTable GetAllBasket()
         {
-            cnn.Open();
-            var query = "select * from Basket";
-            var cmd = new SqlCommand(query, cnn);
-            var reader = cmd.ExecuteReader();
-            var dt = new DataTable();
-            dt.Load(reader);
-            cnn.Close();
-            return dt;
+            using (SqlConnection cnn = new SqlConnection(conString))
+            {
+                cnn.Open();
+                var query = "select * from Basket";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    var reader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(reader);
+                    cnn.Close();
+                    return dt;
+                }
+            }
         }
 
         /// <summary>
         /// Add Basket to database
         /// </summary>
         /// <param name="Basket"></param>
-        public void AddBasket(Basket Basket, int customerId)
+        public void AddBasket(Basket basket, int customerId)
         {
             using (SqlConnection cnn = new SqlConnection(conString))
             {
-                string query = $"insert into Basket (CustomerId) values ({customerId})";
+                string query = "insert into Basket (basket, customerId) values (@basket, @customerId)";
                 cnn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
+                    cmd.Parameters.AddWithValue("@basket", basket);
                     cmd.Parameters.AddWithValue("@customerId", customerId);
                     cmd.ExecuteNonQuery();
                 }

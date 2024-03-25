@@ -9,7 +9,13 @@ namespace KassasysteemMetWinforms.Models
     public class Basket
     {
         public int Id { get; set; }
-        public Customer Customer { get; set; }
+        public int CustomerId { get; set; }
         public List<Product> Products { get; set; }
+
+        public Basket(int customerid, List<Product> products)
+        {
+            CustomerId = customerid;
+            Products = products;
+        }
     }
 }
