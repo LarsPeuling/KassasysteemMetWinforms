@@ -373,6 +373,7 @@ namespace KassasysteemMetWinforms.DataAccesLayer
         //DataAccessLayer for Basket was removed because it was not usefull for the project
         //Basket was found to be more of a one time use, so there was no need to store it in the database
         //But because Basket is a model, it made sense (back when the DataAccessLayer was made) to make a DataAccessLayer for it.
+        //Basket is no longer a model, as of (25/03/2024). This decicion was made to preserve/maintain the integrity of the project.
         //Also to prove that I am capable of making a DataAccessLayer for entities.
         /*//DataAccessLayer for Basket
         public DataTable GetAllBasket()
